@@ -5,7 +5,7 @@ import {
   Button,
   // Checkbox,
   Container,
-  // Divider,
+  Divider,
   Heading,
   HStack,
   Stack,
@@ -17,8 +17,8 @@ import { authEndpoints, mainEndpoints } from "@/routes/endpoints";
 import { LocationState } from "@/routes/types";
 
 import { useSignIn } from "../api";
+import { OAuthButtonGroup } from "../components/OAuthButtonGroup";
 import { SignInFormData, SignInSchema } from "../forms";
-// import { OAuthButtonGroup } from "../components/OAuthButtonGroup";
 
 export const SignInPage = () => {
   const navigate = useNavigate();
@@ -105,14 +105,14 @@ export const SignInPage = () => {
                 <Button isLoading={isLoading} type="submit" variant="solid">
                   Sign in
                 </Button>
-                {/* <HStack>
-                <Divider />
-                <Text textStyle="sm" whiteSpace="nowrap" color="fg.muted">
-                  or continue with
-                </Text>
-                <Divider />
-              </HStack>
-              <OAuthButtonGroup /> */}
+                <HStack>
+                  <Divider />
+                  <Text textStyle="sm" whiteSpace="nowrap" color="fg.muted">
+                    or continue with
+                  </Text>
+                  <Divider />
+                </HStack>
+                <OAuthButtonGroup />
               </Stack>
             </Stack>
           </form>

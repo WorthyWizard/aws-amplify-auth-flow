@@ -14,11 +14,26 @@ export const signIn = (credentials: SignInCredentials) => {
   });
 };
 
+export const signInWithGoogle = () => {
+  return Auth.federatedSignIn({ customProvider: "Google" });
+};
+
 export const useSignIn = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
     mutationFn: signIn,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [authQueryKeys.USER] });
+    },
+  });
+};
+
+export const useSignInWithGoogle = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: signInWithGoogle,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [authQueryKeys.USER] });
     },
