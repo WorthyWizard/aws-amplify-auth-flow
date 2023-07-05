@@ -4,6 +4,7 @@ import {
   Box,
   Button,
   Container,
+  Divider,
   Heading,
   HStack,
   Stack,
@@ -16,6 +17,7 @@ import { authEndpoints } from "@/routes/endpoints";
 import { LocationState } from "@/routes/types";
 
 import { useSignUp } from "../api";
+import { OAuthButtonGroup } from "../components/OAuthButtonGroup";
 import { SignUpFormData, SignUpSchema } from "../forms";
 import { toConfirmSignUpPage } from "../utils";
 
@@ -105,6 +107,14 @@ export const SignUpPage = () => {
               <Button isLoading={isLoading} type="submit" variant="solid">
                 Sign up
               </Button>
+              <HStack>
+                <Divider />
+                <Text textStyle="sm" whiteSpace="nowrap" color="fg.muted">
+                  or create an account with
+                </Text>
+                <Divider />
+              </HStack>
+              <OAuthButtonGroup />
             </Stack>
           </Stack>
         </form>
